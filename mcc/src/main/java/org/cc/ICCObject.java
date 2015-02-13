@@ -32,8 +32,14 @@ public interface ICCObject {
     
     public ICCObject obj(String key);
     
+    public String str(String key);
+    
+    public boolean has(String key);
+    
     public String toString(String indent);
     
     public String toString(String base, String indent);
+    
+   
 
 }

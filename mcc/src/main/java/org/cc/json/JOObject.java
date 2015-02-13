@@ -114,4 +114,15 @@ public class JOObject extends HashMap<String, Object> implements ICCObject {
         return sb.toString();
     }
 
+    @Override
+    public String str(String key) {
+        Object o = get(key);
+        return (o!=null) ? o.toString().trim() : "";
+    }
+
+    @Override
+    public boolean has(String key) {
+        return this.containsKey(key);
+    }
+
 }

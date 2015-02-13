@@ -5,20 +5,10 @@
  */
 package org.cc;
 
-import org.cc.type.CCTypes;
-
 /**
- *
  * @author William
+ * @param <E>
  */
-public interface ICCDC {
-
-    public boolean isActived();
-    
-    public String base();
-
-    public CCTypes types();
-    
-    public void close();
-
+public interface ICCFilter<E> {
+    public E exec(ICCObject cfg) throws Exception ; 
 }

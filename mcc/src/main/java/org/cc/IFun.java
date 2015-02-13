@@ -5,20 +5,10 @@
  */
 package org.cc;
 
-import org.cc.type.CCTypes;
-
 /**
  *
  * @author William
  */
-public interface ICCDC {
-
-    public boolean isActived();
-    
-    public String base();
-
-    public CCTypes types();
-    
-    public void close();
-
+public interface IFun<RET,P> {
+    public RET exec(P param) throws Exception ; 
 }
