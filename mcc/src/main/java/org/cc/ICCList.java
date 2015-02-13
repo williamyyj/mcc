@@ -10,5 +10,29 @@ package org.cc;
  * @author William
  */
 public interface ICCList {
-    
+
+    public int asInt(int index);
+
+    public int asInt(int index, int dv);
+
+    public long asLong(int index);
+
+    public long asLong(int index, long dv);
+
+    public double asDouble(int index);
+
+    public double asDouble(int index, double dv);
+
+    public boolean asBool(int index);
+
+    public boolean asBool(int index, boolean dv);
+
+    public ICCList list(int index);
+
+    public ICCObject obj(int index);
+
+    public String toString(String indent);
+
+    public String toString(String base, String indent);
+
 }
