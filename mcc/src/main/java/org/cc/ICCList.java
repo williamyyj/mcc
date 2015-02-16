@@ -30,9 +30,17 @@ public interface ICCList {
     public ICCList list(int index);
 
     public ICCObject obj(int index);
+    
+    public Object opt(int index);
 
     public String toString(String indent);
 
     public String toString(String base, String indent);
+    
+    public int length();
+    
+    public Object set(int index, Object value);
+    
+    public boolean add(Object value);
 
 }

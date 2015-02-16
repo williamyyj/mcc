@@ -25,10 +25,6 @@ public class DB extends DBC3P0 {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static void main(String[] args) {
-        String base = "C:\\Users\\William\\Dropbox\\resources\\prj\\sonix";
-        DB db = new DB(base);
-        System.out.println(db.database());
-    }
+
 
 }

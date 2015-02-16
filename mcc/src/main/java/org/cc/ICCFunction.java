@@ -9,6 +9,6 @@ package org.cc;
  *
  * @author William
  */
-public interface IFun<RET,P> {
+public interface ICCFunction<RET,P> {
     public RET exec(P param) throws Exception ; 
 }

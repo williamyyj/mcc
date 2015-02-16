@@ -18,6 +18,14 @@ import org.cc.ICCObject;
  */
 public class JOObject extends HashMap<String, Object> implements ICCObject {
 
+    public JOObject(Map m) {
+        super(m);
+    }
+
+    public JOObject() {
+        super();
+    }
+
     @Override
     public int asInt(String key, int dv) {
         return CC._int(get(key), dv);
@@ -117,12 +125,27 @@ public class JOObject extends HashMap<String, Object> implements ICCObject {
     @Override
     public String str(String key) {
         Object o = get(key);
-        return (o!=null) ? o.toString().trim() : "";
+        return (o != null) ? o.toString().trim() : "";
     }
 
     @Override
     public boolean has(String key) {
         return this.containsKey(key);
+    }
+
+    @Override
+    public Object opt(String key) {
+        return get(key);
+    }
+
+    @Override
+    public int length() {
+        return size();
+    }
+
+    @Override
+    public Object set(String key, Object value) {
+        return this.put(key, value);
     }
 
 }

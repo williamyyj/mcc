@@ -34,12 +34,16 @@ public interface ICCObject {
     
     public String str(String key);
     
+    public Object opt(String key);
+    
+    public int length();
+    
     public boolean has(String key);
     
     public String toString(String indent);
     
     public String toString(String base, String indent);
     
-   
-
+    public Object set(String key, Object value);
+    
 }

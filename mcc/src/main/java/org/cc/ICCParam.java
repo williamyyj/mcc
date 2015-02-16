@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package org.cc;
 
 /**
  *
  * @author William
+ * @param <T>  參數型別
  */
-public class CCConst {
-
-    public final static String dp_params = "$dp_params";
-    public final static String dp_sql = "$dp_sql";
-    
+public interface ICCParam<T> {
+    public String name();
+    public T value();
+    public ICCType<T> type();
 }

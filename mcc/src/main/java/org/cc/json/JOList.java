@@ -12,10 +12,10 @@ import org.cc.ICCObject;
  */
 public class JOList extends ArrayList<Object> implements ICCList {
 
-    public JOList(){
+    public JOList() {
         super();
     }
-    
+
     public JOList(Collection c) {
         super(c);
     }
@@ -122,5 +122,17 @@ public class JOList extends ArrayList<Object> implements ICCList {
         CC.indent(sb, base, "]");
         return sb.toString();
     }
+
+    @Override
+    public Object opt(int index) {
+        return get(index);
+    }
+
+    @Override
+    public int length() {
+        return size();
+    }
+
+
 
 }
