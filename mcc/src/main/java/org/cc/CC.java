@@ -6,6 +6,21 @@ import java.util.Date;
 import java.util.Map;
 
 public class CC {
+    
+    
+    public static boolean _bool(Object o, boolean dv){
+          if (o instanceof Number) {
+            return (((Number) o).intValue()==1);
+        } else if (o instanceof String) {
+            try {
+                String text = ((String) o).toLowerCase();
+                return  ( "y".equals(text) || "yes".equals(text) || "true".equals(text) ) ; 
+            } catch (Exception e) {
+                return dv;
+            }
+        }
+        return dv;
+    }
 
     public static int _int(Object o, int dv) {
         if (o instanceof Number) {

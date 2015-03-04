@@ -5,20 +5,10 @@
  */
 package org.cc;
 
-import org.cc.type.CCTypes;
-
 /**
- *
  * @author William
+ *     server side 
  */
-public interface ICCDC {
-
-    public boolean isActived();
+public interface ICCProvider {
     
-    public String base();
-
-    public CCTypes types();
-    
-    public void close();
-
 }

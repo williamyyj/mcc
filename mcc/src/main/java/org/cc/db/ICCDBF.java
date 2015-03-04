@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cc;
+package org.cc.db;
 
 /**
  *
  * @author William
+ * @param <RET>
+ * @param <CTRL>
  */
-public interface ICCDP {
-    
+
+public interface ICCDBF<RET,CTRL> {
+    public RET exec(CTRL c, Object ... params) throws Exception ; 
 }

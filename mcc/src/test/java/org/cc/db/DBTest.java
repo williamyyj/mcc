@@ -1,21 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.cc.db;
 
-import junit.framework.Assert;
-import org.cc.CCCache;
+import java.util.List;
 import org.cc.CCTest;
 import org.cc.ICCObject;
+import org.cc.json.JOObject;
+import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
- *
  * @author William
  */
+
 public class DBTest {
 
     public DBTest() {
@@ -24,13 +19,17 @@ public class DBTest {
     @Test
     public void test_oracle() throws Exception {
         String base = CCTest.base;
-        DB db = new DB(base+"/prj/sonix");
+        System.out.println(base);
+        DB db = new DB(base+"/prj/baphiq");
         try {
-            Assert.assertEquals("check database", "oracle", db.database());
-            Assert.assertEquals("check database", "oracle", db.database());
-            Assert.assertEquals("check database", "oracle", db.database());
+            DBDao dao = new DBDao(db);
+            //Assert.assertEquals("check database", "mssql", db.database());
+            //ICCObject jq = DBCmd.parser_command(db, "baphiq_gcis", "company_add", new JOObject());
+            //List<ICCObject> rows = dao.rows("select * from store_t");
+            ICCObject row = dao.row("select * from store_t");
+            System.out.println(row);
         } finally {
-
+            db.close();
         }
     }
 

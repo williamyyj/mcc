@@ -5,9 +5,6 @@
  */
 package org.cc.db;
 
-import java.sql.Connection;
-import org.cc.CCCache;
-import org.cc.ICCObject;
 import org.cc.type.CCTypes;
 
 /**
@@ -22,9 +19,7 @@ public class DB extends DBC3P0 {
 
     @Override
     protected void init_components() {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        types = new CCTypes(cfg.str("database"));
     }
-
-
-
+    
 }

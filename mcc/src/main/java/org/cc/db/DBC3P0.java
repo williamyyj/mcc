@@ -13,16 +13,17 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import org.cc.CCCache;
+import org.cc.ICCConnection;
 import org.cc.ICCObject;
 import org.cc.type.CCTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
  * @author william
  */
-public abstract class DBC3P0 implements IDB {
+
+public abstract class DBC3P0 implements ICCConnection<Connection>{
 
     protected static Logger log = LoggerFactory.getLogger(DBC3P0.class);
     protected static Map mds;
@@ -40,6 +41,7 @@ public abstract class DBC3P0 implements IDB {
         this.base = (base == null) ? System.getProperty("base") : base;
         ICCObject root = (fid != null) ? CCCache.load(base, fid, "json") : CCCache.load(base, "cfg.json");
         oid = (oid == null) ? "db" : oid;
+        System.out.println(root);
         cfg = root.obj(oid);
         init_components();
     }
@@ -54,6 +56,7 @@ public abstract class DBC3P0 implements IDB {
 
     protected abstract void init_components();
 
+    @Override
     public Connection connection() throws SQLException {
         if (conn == null) {
             String id = (cfg.has("id")) ? cfg.str("id") : "db";
@@ -128,21 +131,6 @@ public abstract class DBC3P0 implements IDB {
     }
 
     @Override
-    public String catalog() {
-        return cfg.str("catalog");
-    }
-
-    @Override
-    public String schema() {
-        return cfg.str("schema");
-    }
-
-    @Override
-    public String database() {
-        return cfg.str("database");
-    }
-
-    @Override
     public boolean isActived() {
         try {
             return (conn != null && !conn.isClosed());
@@ -154,6 +142,10 @@ public abstract class DBC3P0 implements IDB {
     @Override
     public CCTypes types() {
         return this.types;
+    }
+    
+    public ICCObject cfg() {
+        return this.cfg;
     }
 
 }

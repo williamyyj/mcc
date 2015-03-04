@@ -25,7 +25,8 @@ public class CCStringType extends CCBaseType<String> {
     }
 
     public String getRS(ResultSet rs, String name) throws SQLException {
-        return rs.getString(name);
+        String data = rs.getString(name);
+        return (data!=null) ? data.trim() : data ; 
     }
 
     public void setPS(PreparedStatement ps, int idx, Object value) throws SQLException {

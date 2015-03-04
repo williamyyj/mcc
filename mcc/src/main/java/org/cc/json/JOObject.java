@@ -13,9 +13,9 @@ import org.cc.ICCList;
 import org.cc.ICCObject;
 
 /**
- *
  * @author William
  */
+
 public class JOObject extends HashMap<String, Object> implements ICCObject {
 
     public JOObject(Map m) {
